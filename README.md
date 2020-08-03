@@ -1,0 +1,1 @@
+Brincado com algumas funções do JS
