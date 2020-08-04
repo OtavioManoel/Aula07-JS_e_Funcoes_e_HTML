@@ -2,6 +2,8 @@
 
 console.log('Questão 1');
 if(true){
+  let impar=3;
+  let par=2;
   function parOuImpar(numero){
     if (numero%2==0){
       console.log("É par");
@@ -10,10 +12,25 @@ if(true){
     }
   }
 
-  parOuImpar(76);
-  parOuImpar(103);
+  parOuImpar(impar);
+  parOuImpar(par);
 }
+// 2.Crie uma arrow function que receba um número e verifique se é primo.
 
+console.log('Questão 2');
+if(true){
+
+  primo = (num)=>{
+    for(let i=2; i<num; i++){
+      if(num % i ==0){
+        return "Não é primo";
+      }
+    }
+    return "É primo";
+  };
+  
+  console.log(primo(93))
+}
 //  3.Crie uma Função que imprime de 10 até 1 e depois imprime na tela “feliz ano novo” através de uma callback
 
  console.log('Questão 3');
@@ -26,8 +43,8 @@ if(true){
   
   function zeroADez(callback){
     setTimeout(function(){
-      for (let i = 0; i<10; i++){
-      console.log(10-i);
+      for (i  = 10; i>0; i--){
+        console.log(i)
       }
     callback();
     },2000)
@@ -35,8 +52,49 @@ if(true){
   
   zeroADez(felizAnoNovo);
  }
-
 setTimeout(function(){
+  //4.Faça o mesmo utilizando Promise com concatenação de then
+
+  console.log('Questão 4')
+
+  if(true){
+    
+    let felizAnoNovo = new Promise ((resolve, reject) => {
+        let i = 0;
+        for (i  = 10; i>0; i--){
+          console.log(i)
+        }
+        resolve('Feliz Ano Novo');
+    })
+    
+    felizAnoNovo.then((message) => {
+        console.log(message)
+    })
+  }
+
+  //5.Agora repita a função utilizando o método async/await
+  console.log("Questão 5")
+  if(true){
+    function newYear(){
+      return new Promise((resolve, reject) => {
+          let i = 10;
+          for (i  = 10; i>0; i--){
+              console.log(i)
+          }
+          if (i==0){
+              resolve(
+                  console.log('Feliz Ano Novo')
+                  );
+          }
+      })
+  }
+  
+  async function ehAnoNovo(){
+      const felizAnoNovoResponse = await newYear();
+  }
+  
+  ehAnoNovo();
+  }
   //6.Crie um array com as seguintes notas [5.3, 4.7, 8.5, 7.1, 6.4, 9.2, 9.8, 5.5, 7.4, 7.0], construa uma função para imprimir apenas as notas acima de 7
   console.log('Questão 6');
   if (true){
